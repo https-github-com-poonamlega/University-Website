@@ -1,0 +1,46 @@
+﻿@model websitee.Models.HelpModels
+@{
+    ViewBag.Title = "ViewSingleHelpRequest";
+}
+
+<h2>ViewSingleHelpRequest</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">DOT</th>
+            <th scope="col">Issue</th>
+            <th scope="col">Description</th>
+            <th scope="col">ResolveIssue</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">@Model.Email</td>
+            <td>@Model.DOT</td>
+            <td>@Model.Issue</td>
+            <td>@Model.Description</td>
+            
+            @if(Model.AdminResolution.Length > 0)
+            {
+                <td>@Model.AdminResolution</td>
+            }
+            else
+            {
+                <td>
+                    @using(Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.HiddenFor(x => x.HelpId)
+                        @Html.HiddenFor(x => x.Email)
+                        @Html.HiddenFor(x => x.DOT)
+                        @Html.HiddenFor(x => x.Issue)
+                        @Html.HiddenFor(x => x.Description)
+                        @Html.HiddenFor(x => x.AdminResolution)
+                        <input type="submit" value="Add Resolution" />
+                    }
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>

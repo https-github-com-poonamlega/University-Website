@@ -1,0 +1,34 @@
+﻿@model websitee.ViewModels.NewHelpViewModel
+@{
+    ViewBag.Title = "HelpResolve";
+}
+
+<h2>HelpResolve</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>DOT</th>
+            <th>#Resolved/Unresolved#</th>
+            <th>ResolveIssue</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var i = 1; }
+        @foreach(var item in Model.HelpModelRecord)
+            {
+            <tr>
+                <td>@i</td>
+                <td>@item.Email</td>
+                <td>@item.DOT</td>
+                <td>Dummy</td>
+                <td>
+                   <a href="@Url.Action("ViewSingleHelpRequest", "Home", new { helpId = item.HelpId })">Details</a>
+                </td>
+            </tr>
+            { i++; }
+        }
+    </tbody>
+</table>

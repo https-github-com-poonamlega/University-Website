@@ -48,16 +48,22 @@ namespace websitee.Controllers
             return View("Help", helpData);
         }
 
-        //get :help
         [Authorize]
-        public ActionResult Help()
+        public ActionResult History()
         {
             IEnumerable<HelpModels> helpRecords = homeRepository.GetHelpRecordByEmail(System.Web.HttpContext.Current.User.Identity.Name);
             var viewModel = new NewHelpViewModel
             {
                 HelpModelRecord = helpRecords
             };
-            return View(viewModel);
+            return View("HelpResolve", viewModel);
+        }
+
+        //get :help
+        [Authorize]
+        public ActionResult Help()
+        {
+            return View();
         }
         // POST: help
         [Authorize]
@@ -68,7 +74,7 @@ namespace websitee.Controllers
             {
                 homeRepository.UpdateHelpAdminResolution(helpData);
                 homeRepository.Save();
-                return RedirectToAction("Index");
+                return View();
             }
             try
             {
@@ -86,7 +92,7 @@ namespace websitee.Controllers
 
 
         //get :resolvehelp
-        [Authorize(Roles = "IsAdmin")]
+        [Authorize]
         public ActionResult HelpResolve()
         {
             IEnumerable<HelpModels> helpRecords = homeRepository.GetHelpRecords();
@@ -97,7 +103,7 @@ namespace websitee.Controllers
             return View(viewModel);
         }
 
-        [Authorize(Roles = "IsAdmin")]
+        [Authorize]
         public ActionResult ViewSingleHelpRequest(Guid helpId)
         {
             if(helpId != Guid.Empty)

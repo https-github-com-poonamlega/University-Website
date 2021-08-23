@@ -21,15 +21,17 @@
             <td>@Model.DOT</td>
             <td>@Model.Issue</td>
             <td>@Model.Description</td>
-            
-            @if(Model.AdminResolution != null && Model.AdminResolution.Length > 0)
+            @if (Model.AdminResolution != null && Model.AdminResolution.Length > 0)
             {
-                <td>@Model.AdminResolution</td>
+            <td>@Model.AdminResolution</td>
             }
             else
             {
+
+            if (User.IsInRole("IsAdmin"))
+            {
                 <td>
-                    @using(Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    @using (Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.HiddenFor(x => x.HelpId)
                         @Html.HiddenFor(x => x.Email)
@@ -39,7 +41,17 @@
                         @Html.HiddenFor(x => x.AdminResolution)
                         <input type="submit" value="Add Resolution" />
                     }
+
+
+
                 </td>
+            }
+            else {
+                <td>
+                    Issue is not resolved yet!
+                </td>
+            }
+          
             }
         </tr>
     </tbody>

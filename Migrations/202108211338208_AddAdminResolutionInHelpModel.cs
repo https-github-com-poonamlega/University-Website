@@ -7,7 +7,7 @@ namespace websitee.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.HelpModels", "AdminResolution", c => c.String(nullable: false));
+            AddColumn("dbo.HelpModels", "AdminResolution", c => c.String());
         }
         
         public override void Down()

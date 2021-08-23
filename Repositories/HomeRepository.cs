@@ -25,6 +25,11 @@ namespace websitee.Repositories
             return context.HelpModelss.Find(helpId);
         }
 
+        public IEnumerable<HelpModels> GetHelpRecordByEmail(string email)
+        {
+            return context.HelpModelss.Where(x => x.Email == email).ToList();
+        }
+
         public void InsertHelpRecord(HelpModels helpData)
         {
             context.HelpModelss.Add(helpData);

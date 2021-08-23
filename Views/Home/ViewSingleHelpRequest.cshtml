@@ -22,7 +22,7 @@
             <td>@Model.Issue</td>
             <td>@Model.Description</td>
             
-            @if(Model.AdminResolution.Length > 0)
+            @if(Model.AdminResolution != null && Model.AdminResolution.Length > 0)
             {
                 <td>@Model.AdminResolution</td>
             }

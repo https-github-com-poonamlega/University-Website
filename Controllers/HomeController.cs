@@ -52,7 +52,12 @@ namespace websitee.Controllers
         [Authorize]
         public ActionResult Help()
         {
-            return View();
+            IEnumerable<HelpModels> helpRecords = homeRepository.GetHelpRecordByEmail(System.Web.HttpContext.Current.User.Identity.Name);
+            var viewModel = new NewHelpViewModel
+            {
+                HelpModelRecord = helpRecords
+            };
+            return View(viewModel);
         }
         // POST: help
         [Authorize]

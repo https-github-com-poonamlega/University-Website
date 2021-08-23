@@ -36,9 +36,8 @@ namespace websitee.Models
         [Display(Name = "Date of Ticket")]
         public DateTime DOT { get; set; }
 
-        [Required]
         [Display(Name = "Admin Resolution")]
-        public string AdminResolution { get; set; }   
+        public string AdminResolution { get; set; }
 
     }
 

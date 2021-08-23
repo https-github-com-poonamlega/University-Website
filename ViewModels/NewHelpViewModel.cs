@@ -9,5 +9,7 @@ namespace websitee.ViewModels
     public class NewHelpViewModel
     {
         public IEnumerable<HelpModels> HelpModelRecord { get; set; }
+
+        public HelpModels helpModel { get; set; }
     }
 }

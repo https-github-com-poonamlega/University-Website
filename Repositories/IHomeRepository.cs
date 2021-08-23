@@ -13,6 +13,8 @@ namespace websitee.Repositories
 
         void UpdateHelpAdminResolution(HelpModels helpData);
         HelpModels GetHelpRecordById(Guid helpId);
+
+        IEnumerable<HelpModels> GetHelpRecordByEmail(string email);
         void Save();
     }
 }

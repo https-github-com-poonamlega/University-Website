@@ -48,9 +48,10 @@ namespace websitee.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
-        {
+        {   
         }
-
+             
+        //public virtual DbSet<Admin> Admin {get;set;}
         public DbSet<HelpModels> HelpModelss { get; set; }
         public static ApplicationDbContext Create()
         {

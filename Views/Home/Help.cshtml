@@ -17,7 +17,13 @@
     @using (Html.BeginForm("Help", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4>Enter your Details.</h4>
+
+        if (!User.IsInRole("IsAdmin"))
+        {
+        <h4>Enter the Details</h4>
+        }else{
+                    <h4>Enter the Solution.</h4>
+        }
         <hr />
 
         @Html.ValidationSummary("", new { @class = "text-danger" })

@@ -13,6 +13,7 @@ namespace websitee.Controllers
     {
         public IHomeRepository homeRepository;
 
+
         public HomeController()
         {
             homeRepository = new HomeRepository(new ApplicationDbContext());

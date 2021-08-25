@@ -102,6 +102,10 @@ namespace websitee.Models
         public string ContactNumber { get; set; }
 
         [Required]
+        [Display(Name = "User Id")]
+        public int UserId { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

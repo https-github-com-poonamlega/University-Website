@@ -1,0 +1,66 @@
+﻿@model websitee.Models.Service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reqired_Volunteer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reqired_Volunteer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Participated_Volunteer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Participated_Volunteer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Service_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

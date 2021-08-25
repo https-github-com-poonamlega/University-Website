@@ -74,7 +74,7 @@ namespace websitee.Controllers
             {
                 homeRepository.UpdateHelpAdminResolution(helpData);
                 homeRepository.Save();
-                return View();
+                return RedirectToAction("Index");
             }
             try
             {

@@ -4,14 +4,15 @@
 
 
 }
-@if (!User.IsInRole("IsAdmin")) {
+@if (!User.IsInRole("IsAdmin"))
+{
 
-<div style="margin-top: 10px">
-    <input type="button" value="NEW" id="new" />&nbsp;&nbsp;
-    <input type="button" value="History" id="history" />
-</div>
-<hr />
- }
+    <div style="margin-top: 10px">
+        <input type="button" value="NEW" id="new" />&nbsp;&nbsp;
+        <input type="button" value="History" id="history" />
+    </div>
+    <hr />
+}
 
 <div id="new-content">
     @using (Html.BeginForm("Help", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -20,9 +21,11 @@
 
         if (!User.IsInRole("IsAdmin"))
         {
-        <h4>Enter the Details</h4>
-        }else{
-                    <h4>Enter the Solution.</h4>
+            <h4>Enter the Details</h4>
+        }
+        else
+        {
+            <h4>Enter the Solution.</h4>
         }
         <hr />
 
@@ -52,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(m => m.DOT, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.DOT, new { @class = "form-control", @value = DateTime.Now })
+                @Html.EditorFor(m => m.DOT, new { htmlAttributes = new { @class = "datefield", type = "date" } })
             </div>
         </div>
 

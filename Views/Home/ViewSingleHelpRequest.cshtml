@@ -23,35 +23,36 @@
             <td>@Model.Description</td>
             @if (Model.AdminResolution != null && Model.AdminResolution.Length > 0)
             {
-            <td>@Model.AdminResolution</td>
+                <td>@Model.AdminResolution</td>
             }
             else
             {
 
-            if (User.IsInRole("IsAdmin"))
-            {
-                <td>
-                    @using (Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.HiddenFor(x => x.HelpId)
-                        @Html.HiddenFor(x => x.Email)
-                        @Html.HiddenFor(x => x.DOT)
-                        @Html.HiddenFor(x => x.Issue)
-                        @Html.HiddenFor(x => x.Description)
-                        @Html.HiddenFor(x => x.AdminResolution)
-                        <input type="submit" value="Add Resolution" />
-                    }
+                if (User.IsInRole("IsAdmin"))
+                {
+                    <td>
+                        @using (Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.HiddenFor(x => x.HelpId)
+                            @Html.HiddenFor(x => x.Email)
+                            @Html.HiddenFor(x => x.DOT)
+                            @Html.HiddenFor(x => x.Issue)
+                            @Html.HiddenFor(x => x.Description)
+                            @Html.HiddenFor(x => x.AdminResolution)
+                            <input type="submit" value="Add Resolution" />
+                        }
 
 
 
-                </td>
-            }
-            else {
-                <td>
-                    Issue is not resolved yet!
-                </td>
-            }
-          
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Issue is not resolved yet!
+                    </td>
+                }
+
             }
         </tr>
     </tbody>

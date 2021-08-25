@@ -17,24 +17,24 @@
     </thead>
     <tbody>
         @{ var i = 1; }
-        @foreach(var item in Model.HelpModelRecord)
-            {
-        <tr>
-            <td>@i</td>
-            <td>@item.Email</td>
-            <td>@item.DOT</td>
-            @if (item.AdminResolution != null && item.AdminResolution.Length > 0)
-            {
-                <td>@item.AdminResolution</td>
-            }
-            else
-            {
-                <td>Issue is not Resolved Yet!</td>
-            }
-            <td>
-                <a href="@Url.Action("ViewSingleHelpRequest", "Home", new { helpId = item.HelpId })">Details</a>
-            </td>
-        </tr>
+        @foreach (var item in Model.HelpModelRecord)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.Email</td>
+                <td>@item.DOT</td>
+                @if (item.AdminResolution != null && item.AdminResolution.Length > 0)
+                {
+                    <td>@item.AdminResolution</td>
+                }
+                else
+                {
+                    <td>Issue is not Resolved Yet!</td>
+                }
+                <td>
+                    <a href="@Url.Action("ViewSingleHelpRequest", "Home", new { helpId = item.HelpId })">Details</a>
+                </td>
+            </tr>
             { i++; }
         }
     </tbody>

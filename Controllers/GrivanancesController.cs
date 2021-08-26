@@ -28,6 +28,17 @@ namespace websitee.Controllers
 
         };
 
+
+
+        public ActionResult Report()
+        {
+            //var grivanaces = from g in db.Grivanances where (g.Status == "New"|| g.Status == "In Progress") orderby g.Created_On select g;
+
+
+            return View();
+        }
+
+
         List<SelectListItem> UserCompletionStatus = new List<SelectListItem>()
         {
             new SelectListItem{ Text = "Complete", Value = "Complete"},
@@ -132,7 +143,7 @@ namespace websitee.Controllers
         }
 
         // POST: Grivanances/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -144,11 +155,11 @@ namespace websitee.Controllers
             String status = "New";
             DateTime created_On = System.DateTime.Now;
             DateTime expected_Resolution_Date = created_On.AddDays(3);
-            Grivanance g = new Grivanance() { User_Id = uuid, Topic = cgv.Topic,Details=cgv.Details, Sub_Topic = cgv.Sub_Topic, Type = cgv.Type, Status = status,Created_On=created_On,Expected_Resolution_Date=expected_Resolution_Date };
-            
-            
-           // grivanance.Type = "Complaint";
-         
+            Grivanance g = new Grivanance() { User_Id = uuid, Topic = cgv.Topic, Details = cgv.Details, Sub_Topic = cgv.Sub_Topic, Type = cgv.Type, Status = status, Created_On = created_On, Expected_Resolution_Date = expected_Resolution_Date };
+
+
+            // grivanance.Type = "Complaint";
+
             if (ModelState.IsValid)
             {
 
@@ -181,7 +192,7 @@ namespace websitee.Controllers
         }
 
         // POST: Grivanances/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
